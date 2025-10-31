@@ -1,6 +1,6 @@
 $base-color1: red;
-$base-color2: blue;
-$base-color3: green;
+$base-color2: rgb(5, 76, 184);
+$base-color3: #00aa00;
 
 @mixin darken($color, $amount) {
   background-color: darken($color: $color, $amount: $amount);
