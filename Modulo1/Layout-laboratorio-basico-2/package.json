@@ -1,15 +1,15 @@
 {
-  "name": "layout-laboratorio-basico-2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "layout-playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "sass": "^1.93.3"
+    "sass": "^1.77.4",
+    "vite": "^5.2.0"
   }
 }
