@@ -1,0 +1,30 @@
+@use "sass:color";
+
+$base-color1: red;
+$base-color2: rgb(5, 76, 184);
+$base-color3: #00aa00;
+$text-color: gray;
+
+@mixin darken($color, $amount) {
+  background-color: color.adjust($color, $lightness: -$amount);
+  color: color.adjust($text-color, $lightness: $amount);
+}
+
+@mixin lighten($color, $amount) {
+  background-color: color.adjust($color, $lightness: $amount);
+  color: color.adjust($text-color, $lightness: -$amount);
+}
+
+@mixin display-theme($color) {
+  @for $i from 1 to 5 {
+    .darken-#{$i} {
+      @include darken($color, $i * 5%);
+    }
+    .lighten-#{$i} {
+      @include lighten($color, $i * 10%);
+    }
+  }
+  .base-color {
+    background-color: $color;
+  }
+}
