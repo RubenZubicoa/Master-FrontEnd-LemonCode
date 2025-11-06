@@ -1,8 +1,8 @@
-@use "variables.scss";
+@use "variables.scss" as *;
 
 body {
-  background-color: #141414;
-  color: white;
+  background-color: $background-color;
+  color: $white;
   padding: 0px;
   margin: 0px;
   height: 100vh;
@@ -33,8 +33,19 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     flex: 1;
+
+    div {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    div:hover {
+      background-color: $white;
+      color: $background-color;
+      cursor: pointer;
+    }
   }
 }
 
@@ -47,6 +58,14 @@ main {
 
 section {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.top{
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: start;
 }
 
 .top-item {
@@ -56,7 +75,7 @@ section {
 
 .item {
   @extend .item-container;
-  min-width: 250px
+  min-width: 250px;
 }
 
 #top-text {
@@ -64,6 +83,6 @@ section {
   font-size: 1.2rem;
 
   &::after {
-    content: "5";
+    content: $top-text-desktop-content;
   }
 }
