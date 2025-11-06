@@ -1,0 +1,69 @@
+@use "variables.scss";
+
+body {
+  background-color: #141414;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border: 2px solid red;
+  height: 150px;
+  box-sizing: border-box;
+
+  .header-logo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    .platform-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .header-buttons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+}
+
+main {
+  border: 2px solid green;
+  height: calc(100vh - 150px);
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+section {
+  display: flex;
+}
+
+.top-item {
+  @extend .item-container;
+  min-width: 225px;
+}
+
+.item {
+  @extend .item-container;
+  min-width: 250px
+}
+
+#top-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  &::after {
+    content: "5";
+  }
+}
