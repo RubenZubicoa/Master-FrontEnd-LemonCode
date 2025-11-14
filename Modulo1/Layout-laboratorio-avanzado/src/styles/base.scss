@@ -1,76 +1,45 @@
-@use "variables.scss" as *;
+@use "variables.scss" as variables;
+@use "header.scss" as header;
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-  background-color: $background-color;
-  color: $white;
+  background-color: variables.$background-color;
+  color: variables.$white;
   padding: 0px;
   margin: 0px;
   height: 100vh;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-  border: 2px solid red;
-  height: 150px;
-  box-sizing: border-box;
-
-  .header-logo {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-    .platform-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-  }
-
-  .header-buttons {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 20px;
-    flex: 1;
-
-    div {
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    div:hover {
-      background-color: $white;
-      color: $background-color;
-      cursor: pointer;
-    }
-  }
+  font-family: 'Jost', sans-serif;
 }
 
 main {
-  border: 2px solid green;
-  height: calc(100vh - 150px);
+  height: calc(100vh - variables.$header-height);
   box-sizing: border-box;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
 
-section {
+.first,
+.second {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.top{
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
-    justify-content: start;
+.top {
+  display: flex;
+  flex-wrap: column;
+  flex-direction: column-reverse;
+  justify-content: start;
+  box-sizing: border-box;
 }
 
 .top-item {
   @extend .item-container;
   min-width: 225px;
+  cursor: pointer;
 }
 
 .item {
@@ -83,6 +52,43 @@ section {
   font-size: 1.2rem;
 
   &::after {
-    content: $top-text-desktop-content;
+    content: "3";
+  }
+}
+
+@each $i in variables.$top-hidden-items {
+  .top-item [src$="#{$i}.jpg"] {
+    display: none;
+  }
+}
+
+@media screen and (width >= 400px) and (width < 1280px) {
+  section.top {
+    display: flex;
+    flex-wrap: column;
+    flex-direction: row-reverse;
+    justify-content: start;
+  }
+
+  #top-text::after {
+    content: "3";
+  }
+}
+
+@media screen and (width >= 1280px) {
+  section.top {
+    display: flex;
+    flex-wrap: column;
+    flex-direction: row-reverse;
+    justify-content: start;
+  }
+  #top-text::after {
+    content: "5";
+  }
+
+  @each $i in variables.$top-hidden-items {
+    .top-item [src$="#{$i}.jpg"] {
+      display: block;
+    }
   }
 }

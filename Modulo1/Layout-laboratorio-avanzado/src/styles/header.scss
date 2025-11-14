@@ -1,0 +1,52 @@
+@use "variables.scss" as variables;
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  height: variables.$header-height;
+  box-sizing: border-box;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  img {
+    height: 80%;
+  }
+}
+.platform-title {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+
+  div {
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 150ms ease-in-out;
+  }
+  div:hover {
+    background-color: variables.$white;
+    color: variables.$background-color;
+    cursor: pointer;
+  }
+
+}
+
+@media screen and (width >= 1280px) {
+  header .header-logo .platform-title {
+    display: block;
+  }
+}
