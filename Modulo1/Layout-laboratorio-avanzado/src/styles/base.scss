@@ -37,16 +37,11 @@ main {
 }
 
 .top-item {
-  @extend .item-container;
-  padding: 10px;
-  min-width: 225px;
-  cursor: pointer;
+  @include variables.item-container(10px, 225px);
 }
 
 .item {
-  @extend .item-container;
-  padding: 5px;
-  min-width: 250px;
+  @include variables.item-container(5px, 250px);
 }
 
 #top-text {
@@ -54,7 +49,7 @@ main {
   font-size: 1.2rem;
 
   &::after {
-    content: "3";
+    content: variables.$top-text-mobile-content;
   }
 }
 
@@ -71,10 +66,6 @@ main {
     flex-direction: row-reverse;
     justify-content: start;
   }
-
-  #top-text::after {
-    content: "3";
-  }
 }
 
 @media screen and (width >= 1280px) {
@@ -85,7 +76,7 @@ main {
     justify-content: start;
   }
   #top-text::after {
-    content: "5";
+    content: variables.$top-text-desktop-content;
   }
 
   @each $i in variables.$top-hidden-items {

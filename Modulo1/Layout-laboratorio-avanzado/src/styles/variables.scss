@@ -1,24 +1,28 @@
 $background-color: #141414;
 $white: white;
-$top-text-desktop-content: "5";
-$top-hidden-items: 4, 5;
 $header-height: 20%;
+$top-text-desktop-content: "5";
+$top-text-mobile-content: "3";
+$top-hidden-items: 4, 5;
 
-.item-container{
+@mixin item-container($padding, $min-width) {
   flex-wrap: wrap;
   flex: 1;
   box-sizing: border-box;
+  padding: $padding;
+  min-width: $min-width;
+
   img {
     transition: transform 150ms ease-in-out;
     width: 100%;
     margin: 0 auto;
     display: flex;
   }
-}
 
-.item-container:hover {
-  img {
-    transform: scale(1.1);
-    cursor: pointer;
+  &:hover {
+    img {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
   }
 }
