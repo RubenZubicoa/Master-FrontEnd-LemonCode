@@ -6,9 +6,9 @@ import {
   Navigate,
 } from "react-router-dom";
 import { LoginPage } from "./login";
-import { ListPage } from "./list";
+import { ListPage } from "./member-list/list";
 import { DetailPage } from "./detail";
-import { FilterProvider } from "./filter.provider";
+import { FilterProvider } from "./member-list/filter.provider";
 
 export const App = () => {
   return (
