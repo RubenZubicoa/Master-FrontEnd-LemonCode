@@ -14,7 +14,6 @@ export const MemberListComponent: React.FC<MemberListComponentProps> = ({
       <span className="list-header">Avatar</span>
       <span className="list-header">Id</span>
       <span className="list-header">Name</span>
-      <span className="list-header">Organizations</span>
       {members.map((member) => (
         <React.Fragment key={member.id}>
           <img src={member.avatar_url} />

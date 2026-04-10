@@ -1,5 +1,6 @@
 import React from "react";
-import { CharacterEntity } from "../list";
+import { Link } from "react-router-dom";
+import { CharacterEntity } from "../pages/list";
 
 interface RickMortyListComponentProps {
     characters: CharacterEntity[];
@@ -13,7 +14,7 @@ export const RickMortyListComponent: React.FC<RickMortyListComponentProps> = ({ 
         {characters?.map((character) => (
             <React.Fragment key={character.id}>
                 <img src={character.image} />
-                <span>{character.name}</span>
+                <Link to={`/rick-morty/detail/${character.id}`}>{character.name}</Link>
                 <span>{character.status}</span>
             </React.Fragment>
         ))}

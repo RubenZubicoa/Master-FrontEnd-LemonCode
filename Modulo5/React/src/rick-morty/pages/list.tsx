@@ -1,8 +1,8 @@
 import React from "react";
-import { PaginationEntity } from "../member-list/models/Pagination";
-import { PaginationComponent } from "../shared/components/pagination";
-import { RickMortyListComponent } from "./components/rick-morty-list";
 import { useDebounce } from "use-debounce";
+import { PaginationEntity } from "../../member-list/models/Pagination";
+import { PaginationComponent } from "../../shared/components/pagination";
+import { RickMortyListComponent } from "../components/rick-morty-list";
 
 export interface CharacterEntity {
     id: number;
@@ -27,14 +27,13 @@ export const RickMortyListPage: React.FC = () => {
                 return response.json()
             })
             .then((json) => {
-                console.log(json);
                 setCharacters(json.results);
             })
     }, [pagination.currentPage, debouncedSearch]);
 
     return (
         <>
-            <h1>List Page</h1>
+            <h1>Rick Morty List Page</h1>
             <div style={{ marginBottom: "10px" }}>
                 <input type="text" placeholder="Search" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
             </div>
