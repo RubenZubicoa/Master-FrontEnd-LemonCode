@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FilterContext } from "./filter.provider";
 import { FilterComponent } from "./components/filter";
-import { PaginationComponent } from "./components/pagination";
+import { PaginationComponent } from "../shared/components/pagination";
 import { MemberListComponent } from "./components/member-list";
 import { MemberEntity } from "./models/Member";
 import { PaginationEntity } from "./models/Pagination";

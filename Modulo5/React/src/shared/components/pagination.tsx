@@ -1,4 +1,4 @@
-import { PaginationEntity } from "../models/Pagination";
+import { PaginationEntity } from "../../member-list/models/Pagination";
 
 interface PaginationComponentProps {
     pagination: PaginationEntity;

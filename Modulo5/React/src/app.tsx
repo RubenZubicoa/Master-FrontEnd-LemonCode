@@ -9,6 +9,7 @@ import { LoginPage } from "./login";
 import { ListPage } from "./member-list/list";
 import { DetailPage } from "./detail";
 import { FilterProvider } from "./member-list/filter.provider";
+import { RickMortyListPage } from "./rick-morty/list";
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/list" element={<ListPage />} />
+        <Route path="/rick-morty" element={<RickMortyListPage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
