@@ -2,6 +2,7 @@ import React from "react";
 import { PaginationEntity } from "../member-list/models/Pagination";
 import { PaginationComponent } from "../shared/components/pagination";
 import { RickMortyListComponent } from "./components/rick-morty-list";
+import { useDebounce } from "use-debounce";
 
 export interface CharacterEntity {
     id: number;
@@ -13,15 +14,15 @@ export interface CharacterEntity {
 
 export const RickMortyListPage: React.FC = () => {
     const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
-    const [search, setSearch] = React.useState<string>("");
-    const [searchInput, setSearchInput] = React.useState(search);
+    const [searchInput, setSearchInput] = React.useState("");
+    const [debouncedSearch] = useDebounce(searchInput, 500);
     const [pagination, setPagination] = React.useState<PaginationEntity>({
         currentPage: 1,
         totalPages: 1,
     });
 
     React.useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?name=${search}&page=${pagination.currentPage}`)
+        fetch(`https://rickandmortyapi.com/api/character/?name=${debouncedSearch}&page=${pagination.currentPage}`)
             .then((response) => {
                 return response.json()
             })
@@ -29,14 +30,13 @@ export const RickMortyListPage: React.FC = () => {
                 console.log(json);
                 setCharacters(json.results);
             })
-    }, [pagination.currentPage, search]);
+    }, [pagination.currentPage, debouncedSearch]);
 
     return (
         <>
             <h1>List Page</h1>
-            <div>
+            <div style={{ marginBottom: "10px" }}>
                 <input type="text" placeholder="Search" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
-                <button onClick={() => setSearch(searchInput)}>Search</button>
             </div>
             <RickMortyListComponent characters={characters} />
             <PaginationComponent pagination={pagination} setPagination={setPagination} />
