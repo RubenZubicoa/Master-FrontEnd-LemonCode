@@ -7,6 +7,11 @@ export const PUBLIC_ROUTES: Routes = [
         component: Main,
         children: [
             {
+                path: '',
+                redirectTo: 'home',
+                pathMatch: 'full'
+            },
+            {
                 path: 'home',
                 loadComponent: () => import('../home/pages/home/home').then(m => m.Home)
             },
@@ -23,6 +28,11 @@ export const PRIVATE_ROUTES: Routes = [
         path: '',
         component: Main,
         children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
             {
                 path: 'dashboard',
                 loadComponent: () => import('../dashboard/pages/dashboard/dashboard').then(m => m.Dashboard)

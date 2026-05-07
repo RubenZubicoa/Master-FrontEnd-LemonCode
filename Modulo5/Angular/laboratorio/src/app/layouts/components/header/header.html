@@ -1,5 +1,14 @@
+@let isLoggedIn = this.isAuthenticated();
 <mat-toolbar color="primary" style="height: 100%;">
+    @if(isLoggedIn === false){
     <button mat-raised-button routerLink="/login">Login</button>
-    <button mat-raised-button>Home</button>
-    <button mat-raised-button>About</button>
+    <button mat-raised-button routerLink="/home">Home</button>
+    <button mat-raised-button routerLink="/about">About</button>
+    } @else {
+    <button mat-raised-button routerLink="/dashboard">Dashboard</button>
+    <button mat-raised-button routerLink="/profile">Profile</button>
+    <button mat-raised-button routerLink="/galeria">Galeria</button>
+    <button mat-raised-button routerLink="/crud">Crud</button>
+    <button mat-raised-button (click)="logout()">Logout</button>
+    }
 </mat-toolbar>
