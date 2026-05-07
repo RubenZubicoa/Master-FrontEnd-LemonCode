@@ -1,9 +1,7 @@
 import { Routes } from "@angular/router";
-import { Home } from "../home/pages/home/home";
-import { About } from "../about/pages/about/about";
 import { Main } from "./pages/main/main";
 
-export const routes: Routes = [
+export const PUBLIC_ROUTES: Routes = [
     {
         path: '',
         component: Main,
@@ -18,4 +16,29 @@ export const routes: Routes = [
             }   
         ]
     },
+];
+
+export const PRIVATE_ROUTES: Routes = [
+    {
+        path: '',
+        component: Main,
+        children: [
+            {
+                path: 'dashboard',
+                loadComponent: () => import('../dashboard/pages/dashboard/dashboard').then(m => m.Dashboard)
+            },
+            {
+                path: 'profile',
+                loadComponent: () => import('../profile/pages/profile/profile').then(m => m.Profile)
+            },
+            {
+                path: 'galeria',
+                loadComponent: () => import('../galeria/pages/galeria/galeria').then(m => m.Galeria)
+            },
+            {
+                path: 'crud',
+                loadComponent: () => import('../crud/pages/crud/crud').then(m => m.Crud)
+            }
+        ]
+    }
 ];
