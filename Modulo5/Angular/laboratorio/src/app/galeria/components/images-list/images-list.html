@@ -1,0 +1,7 @@
+<div class="images-list-container">
+    @for(image of imageList(); track image.id){
+    <div class="image-item">
+        <img [src]="image.image" />
+    </div>
+    }
+</div>
