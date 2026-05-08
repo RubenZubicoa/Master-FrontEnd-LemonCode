@@ -1,3 +1,7 @@
 <div class="galeria-container">
-    <app-images-list [imageList]="imageList"></app-images-list>
+    @let image = selectedImage();
+    @if(image){
+    <app-image-selected [selectedImage]="image"></app-image-selected>
+    }
+    <app-images-list [imageList]="imageList" (selectedImage)="onImageClick($event)"></app-images-list>
 </div>

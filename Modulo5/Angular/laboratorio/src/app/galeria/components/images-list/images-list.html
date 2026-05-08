@@ -1,6 +1,6 @@
 <div class="images-list-container">
     @for(image of imageList(); track image.id){
-    <div class="image-item">
+    <div class="image-item" (click)="onImageClick(image)">
         <img [src]="image.image" />
     </div>
     }

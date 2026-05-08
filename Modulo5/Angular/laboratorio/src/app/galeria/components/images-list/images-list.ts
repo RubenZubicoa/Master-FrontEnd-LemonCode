@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { GaleriaData } from '../../models/galeria-data';
 
 @Component({
@@ -9,4 +9,9 @@ import { GaleriaData } from '../../models/galeria-data';
 })
 export class ImagesList {
   public imageList = input.required<GaleriaData[]>();
+  public selectedImage = output<GaleriaData>();
+
+  public onImageClick(image: GaleriaData) {
+    this.selectedImage.emit(image);
+  }
 }
