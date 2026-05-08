@@ -1,14 +1,23 @@
 @let isLoggedIn = this.isAuthenticated();
 <mat-toolbar color="primary" style="height: 100%;">
-    @if(isLoggedIn === false){
-    <button mat-raised-button routerLink="/login">Login</button>
-    <button mat-raised-button routerLink="/home">Home</button>
-    <button mat-raised-button routerLink="/about">About</button>
-    } @else {
-    <button mat-raised-button routerLink="/dashboard">Dashboard</button>
-    <button mat-raised-button routerLink="/profile">Profile</button>
-    <button mat-raised-button routerLink="/galeria">Galeria</button>
-    <button mat-raised-button routerLink="/crud">Crud</button>
-    <button mat-raised-button (click)="logout()">Logout</button>
-    }
+    <div class="header-container">
+        <div class="buttons-container">
+            @if(isLoggedIn === false){
+            <button mat-raised-button routerLink="/login">Login</button>
+            <button mat-raised-button routerLink="/home">Home</button>
+            <button mat-raised-button routerLink="/about">About</button>
+            } @else {
+            <button mat-raised-button routerLink="/dashboard">Dashboard</button>
+            <button mat-raised-button routerLink="/profile">Profile</button>
+            <button mat-raised-button routerLink="/galeria">Galeria</button>
+            <button mat-raised-button routerLink="/crud">Crud</button>
+            <button mat-raised-button (click)="logout()">Logout</button>
+            }
+        </div>
+        @if(isLoggedIn){
+        <div class="user-info-container">
+            <span>{{ username() }}</span>
+        </div>
+        }
+    </div>
 </mat-toolbar>

@@ -10,12 +10,12 @@ export const routes: Routes = [
     },
     {
         path: '',
-        canMatch: [() => inject(Auth).isAuthenticated() === false],
+        canMatch: [() => inject(Auth).isLogged() === false],
         loadChildren: () => import('./layouts/layouts.routes').then(m => m.PUBLIC_ROUTES)
     },
     {
         path: '',
-        canMatch: [() => inject(Auth).isAuthenticated() === true],
+        canMatch: [() => inject(Auth).isLogged() === true],
         loadChildren: () => import('./layouts/layouts.routes').then(m => m.PRIVATE_ROUTES)
     }
 ];
