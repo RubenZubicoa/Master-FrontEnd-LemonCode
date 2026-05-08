@@ -3,5 +3,6 @@
     @if(image){
     <app-image-selected [selectedImage]="image"></app-image-selected>
     }
+    <app-buttons [disabledPrevious]="disabledPrevious()" [disabledNext]="disabledNext()" (previous)="onPreviousClick()" (next)="onNextClick()"></app-buttons>
     <app-images-list [imageList]="imageList" (selectedImage)="onImageClick($event)"></app-images-list>
 </div>

@@ -1,0 +1,23 @@
+import { Component, input, output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+
+@Component({
+  selector: 'app-buttons',
+  imports: [MatButtonModule],
+  templateUrl: './buttons.html',
+  styleUrl: './buttons.scss',
+})
+export class Buttons {  
+  public disabledPrevious = input<boolean>(false);
+  public disabledNext = input<boolean>(false);
+  public previous = output<void>();
+  public next = output<void>();
+
+  public onPreviousClick() {
+    this.previous.emit();   
+  }
+
+  public onNextClick() {
+    this.next.emit();
+  }
+}
