@@ -1,9 +1,10 @@
 import { Component, input, output } from '@angular/core';
 import { GaleriaData } from '../../models/galeria-data';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-images-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './images-list.html',
   styleUrl: './images-list.scss',
 })

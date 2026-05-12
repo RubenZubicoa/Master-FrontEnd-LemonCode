@@ -1,4 +1,8 @@
 <div class="buttons-container">
-    <button mat-flat-button [disabled]="disabledPrevious()" (click)="onPreviousClick()">Previous</button>
-    <button mat-flat-button [disabled]="disabledNext()" (click)="onNextClick()">Next</button>
+    <button mat-flat-button [disabled]="disabledPrevious()" (click)="onPreviousClick()">Anterior</button>
+    <button mat-flat-button [disabled]="disabledNext()" (click)="onNextClick()">Siguiente</button>
+    <button mat-flat-button (click)="onIncreaseClick()">Aumentar</button>
+    <button mat-flat-button (click)="onDecreaseClick()">Disminuir</button>
+    <button mat-flat-button [disabled]="isPlaying()" (click)="onPlayClick()">Play</button>
+    <button mat-flat-button [disabled]="!isPlaying()" (click)="onStopClick()">Stop</button>
 </div>

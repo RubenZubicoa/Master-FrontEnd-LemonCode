@@ -1,8 +1,9 @@
 <div class="galeria-container">
     @let image = selectedImage();
     @if(image){
-    <app-image-selected [selectedImage]="image"></app-image-selected>
+    <app-image-selected [selectedImage]="image" [size]="size()"></app-image-selected>
     }
-    <app-buttons [disabledPrevious]="disabledPrevious()" [disabledNext]="disabledNext()" (previous)="onPreviousClick()" (next)="onNextClick()"></app-buttons>
+    <app-buttons [disabledPrevious]="disabledPrevious()" [disabledNext]="disabledNext()" [isPlaying]="isPlaying()" (previous)="onPreviousClick()"
+        (next)="onNextClick()" (increase)="onIncreaseClick()" (decrease)="onDecreaseClick()" (play)="onPlayClick()" (stop)="onStopClick()"></app-buttons>
     <app-images-list [imageList]="imageList" (selectedImage)="onImageClick($event)"></app-images-list>
 </div>

@@ -10,4 +10,5 @@ import { GaleriaData } from '../../models/galeria-data';
 })
 export class ImageSelected {
   public selectedImage = input.required<GaleriaData>();
+  public size = input<number>(1); 
 }
