@@ -3,7 +3,7 @@ import type { Plato } from '@/models/Plato'
 import { storeToRefs } from 'pinia'
 import { usePlatoFilter } from '@/composables/usePlatoFilter'
 import PlatoFilter from './plato-filter.vue'
-import { useFavoritosStore, usePlatosStore } from '../store'
+import { useFavoritosStore, usePlatosStore } from '../store.ts'
 
 const platosStore = usePlatosStore()
 const { platos } = storeToRefs(platosStore)
