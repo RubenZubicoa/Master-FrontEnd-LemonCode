@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Plato } from '@/models/Plato'
 import { useFavoritosStore, usePlatosStore } from '../store'
 
 const platos = usePlatosStore().platos
@@ -10,7 +11,10 @@ const deletePlato = (id: number) => {
 const clearPlatos = () => {
   usePlatosStore().clearPlatos()
 }
-// const favoritos = favoritosStore.favoritos
+
+const addFavorito = (plato: Plato) => {
+  useFavoritosStore().addFavorito(plato)
+}
 </script>
 
 <template>
@@ -33,7 +37,7 @@ const clearPlatos = () => {
           <td class="actions">
             <button type="button" class="btn btn-edit">Editar</button>
             <button type="button" class="btn btn-delete" @click="deletePlato(plato.id)">Eliminar</button>
-            <!-- <button type="button" class="btn btn-favorite" @click="favoritosStore.addFavorito(plato)">Favorito</button> -->
+            <button type="button" class="btn btn-favorite" @click="addFavorito(plato)">Favorito</button>
           </td>
         </tr>
       </tbody>
@@ -51,83 +55,5 @@ const clearPlatos = () => {
   border-radius: 8px;
 }
 
-h2 {
-  margin: 0 0 1rem;
-  font-size: 1.1rem;
-}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 0.5rem;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background: #f5f5f5;
-  font-weight: 600;
-}
-
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
-tbody tr:hover {
-  background: #fafafa;
-}
-
-.actions {
-  display: flex;
-  gap: 0.35rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 0.35rem 0.6rem;
-  font-size: 0.85rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  background: white;
-}
-
-.btn:hover {
-  filter: brightness(0.95);
-}
-
-.btn-edit {
-  color: #2c7a5e;
-  border-color: #42b883;
-}
-
-.btn-delete {
-  color: #c0392b;
-  border-color: #e74c3c;
-}
-
-.btn-favorite {
-  color: #d4a017;
-  border-color: #f1c40f;
-}
-
-.btn-clear {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  color: #666;
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-clear:hover {
-  background: #eee;
-}
 </style>

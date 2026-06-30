@@ -31,5 +31,11 @@ export const useFavoritosStore = defineStore('favoritos', {
         removeFavorito(id: number) {
             this.favoritos = this.favoritos.filter((favorito) => favorito.id !== id)
         },
+        clearFavoritos() {
+            const confirm = window.confirm('¿Estás seguro de querer limpiar los favoritos?')
+            if (confirm) {
+                this.favoritos.splice(0, this.favoritos.length)
+            }
+        },
     },
 })
