@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Form from './components/form.vue';
+import List from './components/list.vue';
 </script>
 
 <template>
   <h1>Meal Planner App</h1>
 
   <Form />
+  <List />
 </template>
 
 <style scoped>
