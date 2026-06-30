@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { usePlatoFilter } from '@/composables/usePlatoFilter'
 import PlatoFilter from './plato-filter.vue'
-import { useFavoritosStore } from '../store'
+import { useFavoritosStore } from '../store.ts'
 
 const favoritosStore = useFavoritosStore()
 const { favoritos } = storeToRefs(favoritosStore)
