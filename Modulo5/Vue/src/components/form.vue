@@ -1,13 +1,28 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { usePlatosStore } from '../store'
 
 const plato = ref('')
 const dia = ref('')
 const tipo = ref('comida')
+
+const addPlato = (event: SubmitEvent) => {
+  event.preventDefault()
+  usePlatosStore().addPlato({
+    id: Date.now(),
+    nombre: plato.value,
+    dia: dia.value,
+    tipo: tipo.value,
+  })
+
+  plato.value = ''
+  dia.value = ''
+  tipo.value = 'comida'
+}
 </script>
 
 <template>
-  <form class="form" @submit.prevent>
+  <form class="form" @submit.prevent="addPlato">
     <label>
       Plato
       <input v-model="plato" type="text" placeholder="Plato" />

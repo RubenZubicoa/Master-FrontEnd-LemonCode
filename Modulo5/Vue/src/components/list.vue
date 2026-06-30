@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useFavoritosStore, usePlatosStore } from '../store'
 
-interface Plato {
-  id: number
-  nombre: string
-  dia: string
-  tipo: string
+const platos = usePlatosStore().platos
+
+const deletePlato = (id: number) => {
+  usePlatosStore().removePlato(id)
 }
 
-const platos = ref<Plato[]>([
-  { id: 1, nombre: 'Ensalada César', dia: 'Lunes', tipo: 'Comida' },
-  { id: 2, nombre: 'Pizza Margherita', dia: 'Martes', tipo: 'Comida' },
-  { id: 3, nombre: 'Hamburguesa', dia: 'Miércoles', tipo: 'Comida' },
-  { id: 4, nombre: 'Pasta Carbonara', dia: 'Jueves', tipo: 'Comida' },
-  { id: 5, nombre: 'Ensalada César', dia: 'Viernes', tipo: 'Comida' },
-  { id: 6, nombre: 'Pizza Margherita', dia: 'Sábado', tipo: 'Cena' },
-  { id: 7, nombre: 'Hamburguesa', dia: 'Domingo', tipo: 'Cena' },
-])
+const clearPlatos = () => {
+  usePlatosStore().clearPlatos()
+}
+// const favoritos = favoritosStore.favoritos
 </script>
 
 <template>
@@ -38,13 +32,13 @@ const platos = ref<Plato[]>([
           <td>{{ plato.tipo }}</td>
           <td class="actions">
             <button type="button" class="btn btn-edit">Editar</button>
-            <button type="button" class="btn btn-delete">Eliminar</button>
-            <button type="button" class="btn btn-favorite">Favorito</button>
+            <button type="button" class="btn btn-delete" @click="deletePlato(plato.id)">Eliminar</button>
+            <!-- <button type="button" class="btn btn-favorite" @click="favoritosStore.addFavorito(plato)">Favorito</button> -->
           </td>
         </tr>
       </tbody>
     </table>
-    <button type="button" class="btn btn-clear">Limpiar plan de comidas de la semana</button>
+    <button type="button" class="btn btn-clear" @click="clearPlatos()">Limpiar plan de comidas de la semana</button>
   </section>
 </template>
 

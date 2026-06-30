@@ -1,40 +1,61 @@
 <script setup lang="ts">
-import Form from './components/form.vue';
-import List from './components/list.vue';
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <h1>Meal Planner App</h1>
+  <header class="header">
+    <h1>Meal Planner App</h1>
+    <nav class="nav">
+      <RouterLink to="/platos">Plan Semanal</RouterLink>
+      <RouterLink to="/favoritos">Favoritos</RouterLink>
+    </nav>
+  </header>
 
-  <Form />
-  <List />
+  <main class="main">
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.header {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.nav a {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.nav a:hover {
+  background: #f5f5f5;
+}
+
+.nav a.router-link-active {
+  color: white;
+  background: #42b883;
+  border-color: #42b883;
+}
+
+.main {
+  padding: 0 1rem 2rem;
 }
 </style>
