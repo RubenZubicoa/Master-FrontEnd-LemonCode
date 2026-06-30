@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import type { Plato } from '@/models/Plato'
+import { storeToRefs } from 'pinia'
+import { usePlatoFilter } from '@/composables/usePlatoFilter'
+import PlatoFilter from './plato-filter.vue'
 import { useFavoritosStore, usePlatosStore } from '../store'
 
-const platos = usePlatosStore().platos
+const platosStore = usePlatosStore()
+const { platos } = storeToRefs(platosStore)
+
+const { nombre, dia, tipo, platosFiltrados } = usePlatoFilter(platos)
 
 const deletePlato = (id: number) => {
-  usePlatosStore().removePlato(id)
+  platosStore.removePlato(id)
 }
 
 const clearPlatos = () => {
-  usePlatosStore().clearPlatos()
+  platosStore.clearPlatos()
 }
 
 const addFavorito = (plato: Plato) => {
@@ -20,6 +26,9 @@ const addFavorito = (plato: Plato) => {
 <template>
   <section class="list">
     <h2>Lista de platos de la semana</h2>
+
+    <PlatoFilter v-model:nombre="nombre" v-model:dia="dia" v-model:tipo="tipo" />
+
     <table>
       <thead>
         <tr>
@@ -30,7 +39,10 @@ const addFavorito = (plato: Plato) => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="plato in platos" :key="plato.id">
+        <tr v-if="platosFiltrados.length === 0">
+          <td colspan="4">No hay platos que coincidan con el filtro.</td>
+        </tr>
+        <tr v-for="plato in platosFiltrados" :key="plato.id">
           <td>{{ plato.dia }}</td>
           <td>{{ plato.nombre }}</td>
           <td>{{ plato.tipo }}</td>
@@ -54,6 +66,4 @@ const addFavorito = (plato: Plato) => {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-
-
 </style>

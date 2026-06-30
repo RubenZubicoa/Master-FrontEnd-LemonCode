@@ -20,6 +20,7 @@ export const usePlatosStore = defineStore('platos', {
             }
         },
     },
+    persist: true,
 })
 
 export const useFavoritosStore = defineStore('favoritos', {
@@ -38,4 +39,5 @@ export const useFavoritosStore = defineStore('favoritos', {
             }
         },
     },
+    persist: true,
 })

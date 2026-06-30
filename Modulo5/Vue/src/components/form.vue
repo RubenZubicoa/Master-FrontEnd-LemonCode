@@ -45,6 +45,10 @@ const addPlato = (event: SubmitEvent) => {
     <fieldset>
       <legend>Tipo de comida</legend>
       <label>
+        <input type="radio" v-model="tipo" value="desayuno" />
+        Desayuno
+      </label>
+      <label>
         <input type="radio" v-model="tipo" value="comida" />
         Comida
       </label>
