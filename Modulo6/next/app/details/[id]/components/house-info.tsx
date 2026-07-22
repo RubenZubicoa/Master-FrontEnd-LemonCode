@@ -2,6 +2,7 @@
 import { House } from "@/app/models/House";
 import "../styles.css";
 import { useRouter } from "next/navigation";
+import Image from 'next/image'
 
 export default function HouseInfo({ house }: { house: House }) {
     const router = useRouter();
@@ -10,7 +11,7 @@ export default function HouseInfo({ house }: { house: House }) {
     }
     return (
         <div className="details-container">
-        <img src={house.image} alt={house.name} className="house-image" />
+        <Image src={house.image} alt={house.name} className="house-image" width={300} height={300} />
         <div className="element-container">
             <h2 className="text-lg font-bold mb-2">Descripción</h2>
             <p>{house.description}</p>
