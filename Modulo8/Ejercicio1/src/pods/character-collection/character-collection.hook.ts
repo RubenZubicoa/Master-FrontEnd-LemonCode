@@ -8,8 +8,8 @@ export const useCharacterCollection = () => {
     []
   );
 
-  const loadCharacterCollection = (currentPage: number = 1) => {
-    getCharacterCollection(currentPage).then((result) =>
+  const loadCharacterCollection = (currentPage: number = 1, search: string = '') => {
+    getCharacterCollection(currentPage, search).then((result) =>
       setCharacterCollection(mapToCollection(result, mapCharacterFromApiToVm))
     );
   };
@@ -18,8 +18,8 @@ export const useCharacterCollection = () => {
 };
 
 
-const getCharacterCollection = async (currentPage: number = 1) => {
-  const response = await fetch(`https://rickandmortyapi.com/api/character?page=${currentPage}`);
+const getCharacterCollection = async (currentPage: number = 1, search: string = '') => {
+  const response = await fetch(`https://rickandmortyapi.com/api/character?page=${currentPage}&name=${search}`);
   const data = await response.json();
   return data.results;
 };
