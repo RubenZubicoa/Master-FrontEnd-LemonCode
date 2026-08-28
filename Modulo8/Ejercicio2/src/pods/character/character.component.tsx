@@ -19,7 +19,7 @@ export const CharacterComponent: React.FC<CharacterComponentProps> = ({ characte
       <p>{character.type}</p>
       <p>{character.gender}</p>
       <p>{character.bestSentence}</p>
-      <button onClick={() => navigate(`/character/${character.id}`)}>Editar</button>
+      <button onClick={() => navigate(`/characters/${character.id}/edit`)}>Editar</button>
     </div>
   );
 };
