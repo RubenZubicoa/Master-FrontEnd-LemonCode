@@ -12,7 +12,7 @@ export const useCharacter = () => {
 
 
 const getCharacter = async (id: number) => {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+  const response = await fetch(`http://localhost:3000/api/character/${id}`);
   const data = await response.json();
   return data;
 };

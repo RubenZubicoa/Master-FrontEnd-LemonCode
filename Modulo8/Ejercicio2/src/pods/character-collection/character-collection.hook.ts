@@ -19,7 +19,7 @@ export const useCharacterCollection = () => {
 
 
 const getCharacterCollection = async () => {
-  const response = await fetch('https://rickandmortyapi.com/api/character');
+  const response = await fetch('http://localhost:3000/api/character');
   const data = await response.json();
   return data.results;
 };
