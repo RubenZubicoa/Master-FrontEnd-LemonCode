@@ -27,7 +27,6 @@ export const CharacterCollectionComponent: React.FC<Props> = ({ characterCollect
           </li>
         ))}
       </ul>
-
     </div>
   );
 };
