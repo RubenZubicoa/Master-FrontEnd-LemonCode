@@ -2,9 +2,10 @@ import { css } from '@emotion/css';
 import { theme } from '#core/theme';
 
 export const root = css`
-  & > :nth-child(n + 2) {
-    margin-top: 2rem;
-  }
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
 `;
 
 export const list = css`
@@ -23,4 +24,31 @@ export const list = css`
   @media (min-width: ${theme.breakpoints.values.md}px) {
     grid-template-columns: repeat(3, 1fr);
   }
+`;
+
+export const characterCard = css`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+`;
+
+export const characterName = css`
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+`;
+
+export const viewDetailsButton = css`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 `;

@@ -17,13 +17,13 @@ export const CharacterCollectionComponent: React.FC<Props> = ({ characterCollect
     <div className={classes.root}>
     <ul className={classes.list}>
       {characterCollection.map((character) => (
-        <li key={character.id}>
-          <div>{character.name}</div>
+        <li key={character.id} className={classes.characterCard}>
+          <div className={classes.characterName}>{character.name}</div>
           <div>{character.status}</div>
           <div>{character.species}</div>
           <div>{character.type}</div>
           <div>{character.gender}</div>
-          <button onClick={() => handleViewDetails(character.id)}>View Details</button>
+          <button onClick={() => handleViewDetails(character.id)} className={classes.viewDetailsButton}>View Details</button>
           </li>
         ))}
       </ul>
